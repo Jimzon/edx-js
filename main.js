@@ -1,8 +1,9 @@
 const hello = () => {
-  if (document.querySelector(".heading1").innerText === "Hello") {
-    document.querySelector(".heading1").innerHTML = "Jimzon Pogi";
+  const heading = document.querySelector(".heading1");
+  if (heading.innerText === "Hello") {
+    heading.innerHTML = "Jimzon Pogi";
   } else {
-    document.querySelector(".heading1").innerHTML = "Hello";
+    heading.innerHTML = "Hello";
   }
 };
 
@@ -10,5 +11,9 @@ let counter = 0;
 
 let count = () => {
   counter++;
-  alert(counter);
+  document.querySelector(".counth1").innerHTML = counter;
+
+  if (counter % 10 == 0) {
+    alert(`perfect ${counter}`);
+  }
 };
