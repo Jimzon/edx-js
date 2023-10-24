@@ -68,11 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
 //currency
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("https://api.exchangeratesapi.io/latest?base=USD")
-    .then((response) => response.json())
-    .then((data) => {
-      const test = data.error.code;
-      document.querySelector("body").innerHTML = test;
-      document.querySelector("body").innerHTML = `Error testing: ${test}`;
-    });
+  document.querySelector("form").onsubmit = function () {
+    fetch("https://api.exchangeratesapi.io/latest?base=USD")
+      .then((response) => response.json())
+      .then((data) => {
+        const test = data.error.code;
+        document.querySelector("body").innerHTML = test;
+        document.querySelector("body").innerHTML = `Error testing: ${test}`;
+      });
+  };
 });
