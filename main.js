@@ -23,6 +23,7 @@ let count = () => {
 };
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#count-btn").onclick = count;
+  setInterval(count, 3000);
 });
 
 //form
