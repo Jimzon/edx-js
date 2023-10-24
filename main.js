@@ -47,7 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
 //Tasks
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("form").onsubmit = function (e) {
-    event.preventDefault();
+    e.preventDefault();
+
+    if (document.querySelector("#addlist").value.length > 0) {
+      document.querySelector("#list-btn").disabled = false;
+    } else {
+      document.querySelector("#list-btn").disabled = true;
+    }
+    document.querySelector("#addlist").onkeyup = function () {
+      document.querySelector("#list-btn").disabled = false;
+    };
     let task = document.querySelector("#addlist").value;
     let li = document.createElement("li");
     li.innerHTML = task;
