@@ -46,7 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Tasks
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector("form").onsubmit = function () {
+  document.querySelector("form").onsubmit = function (e) {
+    event.preventDefault();
     let task = document.querySelector("#addlist").value;
     let li = document.createElement("li");
     li.innerHTML = task;
