@@ -69,12 +69,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("form").onsubmit = function () {
-    fetch("https://api.exchangeratesapi.io/latest?base=USD")
+    fetch("https://api.exchangeratesapi.io/v1/latest")
       .then((response) => response.json())
       .then((data) => {
-        const test = data.error.code;
-        document.querySelector("body").innerHTML = test;
-        document.querySelector("body").innerHTML = `Error testing: ${test}`;
+        const currency = document.querySelector("#currency").value;
+        const rate = data.rates[currency];
+        // document.querySelector("body").innerHTML = test;
+        if (rate != undefined) {
+          document.querySelector(
+            "body"
+          ).innerHTML = `Error testing ${rate} ${currency}`;
+        } else {
+          document.querySelector("#result").innerHTML = `Invalid currency`;
+        }
+      })
+      .catch((error) => {
+        console.log("Error", error);
       });
+    return false;
   };
 });
