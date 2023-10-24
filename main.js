@@ -43,3 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#hello").style.color = this.value;
   };
 });
+
+//Tasks
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector("form").onsubmit = function () {
+    let task = document.querySelector("#addlist").value;
+    let li = document.createElement("li");
+    li.innerHTML = task;
+    document.querySelector("#ullist").append(li);
+  };
+});
